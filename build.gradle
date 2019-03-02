@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'com.github.mouse0w0'
+version '1.0.0'
+
+sourceCompatibility = targetCompatibility = 11
+
+repositories {
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:27.0.1-jre'
+    compile 'org.ow2.asm:asm-commons:7.0'
+    compile 'net.sf.jopt-simple:jopt-simple:5.0.4'
+    compile 'com.moandjiezana.toml:toml4j:0.7.2'
+    compile 'org.slf4j:slf4j-simple:1.7.25'
+    testCompile 'junit:junit:4.12'
+}
