@@ -15,18 +15,18 @@ public class Remapper2 extends Remapper {
     public static Remapper2 createO2U(List<ClassEntry> classEntries, List<FieldEntry> fieldEntries, List<MethodEntry> methodEntries) {
         Remapper2 remapper = new Remapper2();
         classEntries.forEach(classEntry -> remapper.classEntryMap.put(classEntry.obfuscatedName, classEntry.uniqueObfuscatedName));
-        fieldEntries.forEach(fieldEntry -> remapper.fieldEntryMap.put(remapper.map(fieldEntry.owner) + "/" + fieldEntry.obfuscatedName, fieldEntry.uniqueObfuscatedName));
-        methodEntries.forEach(methodEntry -> remapper.fieldEntryMap.put(remapper.map(methodEntry.owner) + "/" + methodEntry.obfuscatedName + methodEntry.descriptor, methodEntry.uniqueObfuscatedName));
+        fieldEntries.forEach(fieldEntry -> remapper.fieldEntryMap.put(fieldEntry.owner + "/" + fieldEntry.obfuscatedName, fieldEntry.uniqueObfuscatedName));
+        methodEntries.forEach(methodEntry -> remapper.methodEntryMap.put(methodEntry.owner + "/" + methodEntry.obfuscatedName + methodEntry.descriptor, methodEntry.uniqueObfuscatedName));
         return remapper;
     }
 
     public String mapMethodName(final String owner, final String name, final String descriptor) {
-        var fullName = owner + "/" + name;
+        var fullName = owner + "/" + name + descriptor;
         return methodEntryMap.getOrDefault(fullName, name);
     }
 
     public String mapFieldName(final String owner, final String name, final String descriptor) {
-        var fullName = owner + "/" + name + descriptor;
+        var fullName = owner + "/" + name;
         return fieldEntryMap.getOrDefault(fullName, name);
     }
 
