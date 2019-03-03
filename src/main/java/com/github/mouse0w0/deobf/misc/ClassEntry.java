@@ -9,6 +9,9 @@ public class ClassEntry implements Entry {
     public String uniqueObfuscatedName;
     public String deobfucatedName;
 
+    public ClassEntry() {
+    }
+
     public ClassEntry(String obfuscatedName, String uniqueObfuscatedName, String deobfucatedName) {
         this.obfuscatedName = obfuscatedName;
         this.uniqueObfuscatedName = uniqueObfuscatedName;

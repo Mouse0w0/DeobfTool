@@ -24,7 +24,7 @@ public class Init {
         OptionParser parser = new OptionParser();
         OptionSpec<String> targetSpec = parser.accepts("target", "Target file, extension name must be jar.").withRequiredArg();
         OptionSpec<String> outputSpec = parser.accepts("output", "Output file prefix.").withRequiredArg();
-        OptionSpec<String> configSpec = parser.accepts("config", "Config file, file format is toml.").withOptionalArg();
+        OptionSpec<String> configSpec = parser.accepts("config", "Config file, file format is toml.").withRequiredArg();
 
         OptionSet set = parser.parse(args);
 
@@ -131,6 +131,7 @@ public class Init {
             IOUtils.writeEntries(Path.of(outputPrefix + "_variables.csv"), variableEntries);
         } catch (IOException e) {
             Main.LOGGER.error("Initialing deobf catch exception.", e);
+            return;
         }
 
         Main.LOGGER.info("Finished.");

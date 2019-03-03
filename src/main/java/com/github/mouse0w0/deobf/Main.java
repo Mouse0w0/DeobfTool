@@ -1,6 +1,8 @@
 package com.github.mouse0w0.deobf;
 
 import com.github.mouse0w0.deobf.command.Init;
+import com.github.mouse0w0.deobf.command.Remap;
+import com.github.mouse0w0.deobf.misc.Remapper2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +18,7 @@ public class Main {
 
     private static final Map<String, Consumer<String[]>> commands = Map.ofEntries(
             entry("init", Init::onCommand),
-//            entry("o2u", null),
+            entry("o2u", args -> Remap.onCommand("o2u", args)),
 //            entry("o2d", null),
 //            entry("d2u", null),
 //            entry("u2d", null),

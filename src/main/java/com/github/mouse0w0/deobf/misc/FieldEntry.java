@@ -10,6 +10,9 @@ public class FieldEntry implements Entry {
     public String uniqueObfuscatedName;
     public String deobfucatedName;
 
+    public FieldEntry() {
+    }
+
     public FieldEntry(String owner, String obfuscatedName, String uniqueObfuscatedName, String deobfucatedName) {
         this.owner = owner;
         this.obfuscatedName = obfuscatedName;

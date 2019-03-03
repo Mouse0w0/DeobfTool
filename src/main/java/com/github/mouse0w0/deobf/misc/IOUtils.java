@@ -5,9 +5,7 @@ import com.google.common.collect.Streams;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.tree.ClassNode;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -60,5 +58,13 @@ public class IOUtils {
                         }
                 )
                 .collect(Collectors.toList());
+    }
+
+    public static void copy(InputStream input, OutputStream output) throws IOException {
+        byte[] bytes = new byte[1024];
+        int bytesRead;
+        while ((bytesRead = input.read(bytes)) != -1) {
+            output.write(bytes, 0, bytesRead);
+        }
     }
 }

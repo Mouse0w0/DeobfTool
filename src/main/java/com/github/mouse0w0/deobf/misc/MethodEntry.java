@@ -11,6 +11,9 @@ public class MethodEntry implements Entry {
     public String deobfucatedName;
     public String descriptor;
 
+    public MethodEntry() {
+    }
+
     public MethodEntry(String owner, String obfuscatedName, String uniqueObfuscatedName, String deobfucatedName, String descriptor) {
         this.owner = owner;
         this.obfuscatedName = obfuscatedName;
